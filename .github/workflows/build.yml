@@ -10,26 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Setup Godot
       uses: firebelley/setup-godot@v1
       with:
         version: 4.2.1
-        use-dotnet: false
         export-templates: true
 
-    - name: Setup Java (JDK 17)
+    - name: Setup Java
       uses: actions/setup-java@v3
       with:
-        distribution: 'temurin'
-        java-version: '17'
+        distribution: temurin
+        java-version: 17
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Export APK
+    - name: Build Android APK
       run: |
         mkdir -p build/android
         godot --headless --export-release "Android" build/android/game.apk
