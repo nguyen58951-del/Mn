@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://1"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("res://player.gd")
+
+[node name="Ghost" type="CharacterBody2D" parent="."]
+script = ExtResource("res://ghost.gd")
